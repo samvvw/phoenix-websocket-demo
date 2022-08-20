@@ -10,8 +10,7 @@ defmodule HelloSocketsWeb.Endpoint do
     signing_salt: "Vg37zath"
   ]
   socket "/socket", HelloSocketsWeb.UserSocket,
-    websocket: [timeout: 45_000]
-,
+    websocket: [timeout: 45_000],
     longpoll: false
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
