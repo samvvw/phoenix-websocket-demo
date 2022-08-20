@@ -20,6 +20,12 @@ defmodule HelloSocketsWeb.Router do
     get "/", PageController, :index
   end
 
+  scope "/chat", HelloSocketsWeb do
+    pipe_through :browser
+
+    get "/", ChatController, :index
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", HelloSocketsWeb do
   #   pipe_through :api
