@@ -37,7 +37,9 @@ if config_env() == :prod do
   port = String.to_integer(System.get_env("PORT"))
 
   config :hello_sockets, HelloSocketsWeb.Endpoint,
-    url: [host: host, port: 443, scheme: "https"],
+    ssl: true,
+    pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
+    url: [scheme: "https", host: host, port: 443, force_ssl: [rewrite_on: [:x_forwarded_proto]]],
     http: [
       # Enable IPv6 and bind on all interfaces.
       # Set it to  {0, 0, 0, 0, 0, 0, 0, 1} for local network only access.
