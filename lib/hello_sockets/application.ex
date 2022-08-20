@@ -13,9 +13,10 @@ defmodule HelloSockets.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: HelloSockets.PubSub},
       # Start the Endpoint (http/https)
-      HelloSocketsWeb.Endpoint
+      HelloSocketsWeb.Endpoint,
       # Start a worker by calling: HelloSockets.Worker.start_link(arg)
       # {HelloSockets.Worker, arg}
+      HelloSocketsWeb.Presence
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
